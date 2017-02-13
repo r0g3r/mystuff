@@ -1,0 +1,85 @@
+set nocompatible
+set encoding=utf-8
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'valloric/youcompleteme'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'markcornick/vim-vagrant'
+Plugin 'Yggdroot/indentLine'
+Plugin 'tmhedberg/SimpylFold'
+call vundle#end()
+
+
+set t_Co=256
+filetype plugin indent on
+syntax on
+set expandtab
+set tabstop=4
+set shiftwidth=4
+colorscheme molokai
+set guifont=Hack\ 10
+set nu
+set cursorline
+
+" Toogle NerdTree
+map <A-Space> :NERDTreeToggle<CR>
+
+" Toogle invible chars as dots
+map <F3> :set list!<CR>
+
+" Move between split panes
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Airline Theme
+let g:airline_theme = 'luna'
+
+" YouCompleteMe
+let g:ycm_python_binary_path = '/usr/local/var/pyenv/shims/python'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ansible_options = {'documentation_mapping': '<C-m>'}
+
+set listchars=space:·
+ 
+" Guide lines character
+let g:indentLine_char = '┆'
+" Disable guide lines (only on toggle)
+let g:indentLine_enabled = 0
+" Guide lines toggle
+map <F4> :IndentLinesToggle<CR>
+" Guide lines color
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
+" remove numbers
+map <C-n> :set nonu!<CR>
+" Remove gvim toolbar
+set guioptions-=T
+" Remove gvim right scroll bar
+set guioptions-=r
+" Remove gvim left scroll bar
+set guioptions-=L
+" Remove gvim menu bar
+set guioptions-=m  "remove menu bar"
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" No Wrap
+set nowrap
